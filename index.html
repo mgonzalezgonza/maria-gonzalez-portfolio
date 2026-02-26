@@ -3,83 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maria Gonzalez Gonzalez | PM Technical</title>
+    <title>Dr. Maria G. | Product Catalyst</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
     <style>
-        .gradient-text {
-            background: linear-gradient(90deg, #3b82f6, #10b981);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        body { font-family: 'Space Grotesk', sans-serif; background-color: #050505; color: #f8fafc; overflow-x: hidden; }
+        h1, h2, h3 { font-family: 'Syne', sans-serif; }
+        .hero-text { font-size: clamp(3rem, 10vw, 6.5rem); line-height: 0.8; letter-spacing: -0.05em; }
+        .catalyst-gradient { background: linear-gradient(90deg, #6366f1, #ec4899, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Interactive Reaction */
+        .react-active { animation: pulse 0.6s ease-in-out; color: #ec4899 !important; }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); filter: brightness(1.5); }
+            100% { transform: scale(1); }
         }
-        .privacy-toggle:checked ~ .privacy-content { display: block; }
-        .privacy-toggle:checked ~ .growth-content { display: none; }
+
+        /* Project Card Styling */
+        .project-card { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid rgba(255,255,255,0.1); }
+        .project-card:hover { border-color: #ec4899; transform: translateY(-10px); background: rgba(255,255,255,0.03); }
+        
+        .no-scrollbar::-webkit-scrollbar { display: none; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans">
+<body class="selection:bg-pink-500">
 
-    <header class="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h1 class="text-5xl font-extrabold mb-4">Maria Gonzalez Gonzalez, <span class="gradient-text">Ph.D.</span></h1>
-        <p class="text-2xl font-light text-slate-600 mb-8">The Collaborative Catalyst for $19B AdTech Ecosystems</p>
-        
-        <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-semibold">9+ Years AdTech Experience</span>
-            <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-semibold">$52M+ Incremental Revenue</span>
-            <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-semibold">Privacy Compliance Expert</span>
+    <nav class="p-8 flex justify-between items-center max-w-7xl mx-auto">
+        <div class="font-bold text-2xl tracking-tighter italic">DR. MARIA G.</div>
+        <div class="flex items-center gap-6 text-right">
+            <div class="hidden md:block">
+                <p class="text-[10px] text-slate-500 uppercase tracking-[0.2em] mb-1">Now Playing</p>
+                <p class="text-xs font-bold text-pink-500 italic">Héroes del Sábado — La M.O.D.A.</p>
+            </div>
         </div>
-    </header>
+    </nav>
 
-    <section class="max-w-5xl mx-auto px-6 mb-20">
-        <h2 class="text-3xl font-bold mb-10 border-b pb-2">Why I'm Your Next PM-T</h2>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Challenge</p>
-                <p class="mb-4 text-sm italic text-slate-600">"We have fragmented data across 7 lines of business and 100+ teams."</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">The Maria Solution</p>
-                <p class="text-sm font-medium">Architected a central analytics vision for a $19B publisher portfolio at Amazon.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Challenge</p>
-                <p class="mb-4 text-sm italic text-slate-600">"Campaign troubleshooting takes days, costing us advertiser trust."</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">The Maria Solution</p>
-                <p class="text-sm font-medium">Launched an AI recommendation engine, reducing issue resolution from days to minutes.</p>
-            </div>
-            <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
-                <p class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-2">The Challenge</p>
-                <p class="mb-4 text-sm italic text-slate-600">"How do we grow revenue without compromising global privacy laws?"</p>
-                <p class="text-xs font-bold uppercase tracking-widest text-blue-600 mb-2">The Maria Solution</p>
-                <p class="text-sm font-medium">Applied doctoral research in data privacy to ensure GDPR/CCPA compliance while scaling ad products.</p>
+    <section class="max-w-7xl mx-auto px-8 py-20 min-h-[60vh] flex flex-col justify-center">
+        <h1 class="hero-text font-extrabold mb-10 uppercase">
+            THE <span class="catalyst-gradient">COLLABORATIVE CATALYST</span>
+        </h1>
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+            <p class="text-3xl text-slate-300 leading-tight">
+                I bridge the impossible gap between technical complexity and business growth. Aligning 100+ stakeholders to turn friction into <strong>$52M+ in revenue</strong>. 
+            </p>
+            <div class="space-y-4">
+                <button onclick="triggerReaction()" class="px-8 py-4 bg-pink-600 text-white font-bold rounded-xl hover:scale-105 transition-transform uppercase text-sm tracking-widest">
+                    Activate Catalyst Reaction
+                </button>
             </div>
         </div>
     </section>
 
-    <section class="bg-slate-900 text-white py-20 px-6">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-            <div>
-                <h3 class="text-2xl font-bold mb-6">Technical DNA</h3>
-                <ul class="space-y-4 text-slate-300">
-                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> MSc Telecommunications Engineering</li>
-                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Expert in Hybrid Auctions & Floor Pricing</li>
-                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> Advanced Analytics: SQL, PLS-SEM, Tableau</li>
-                    <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> AI-Powered Creative Tooling</li>
-                </ul>
+    <section class="max-w-7xl mx-auto px-8 py-20 border-t border-white/10">
+        <h2 class="text-xs font-bold tracking-[0.3em] text-slate-500 uppercase mb-12 italic">// IMPACT DECK</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div class="project-card p-8 rounded-3xl bg-white/[0.02]">
+                <h3 class="text-xl font-bold mb-2">Fire TV Takeovers</h3>
+                <p class="text-slate-400 text-sm">$20M/yr revenue growth through high-impact ad formats.</p>
             </div>
-            <div class="bg-slate-800 p-8 rounded-2xl">
-                <h3 class="text-xl font-bold mb-4">Research-Driven Strategy</h3>
-                <p class="text-slate-400 text-sm leading-relaxed">
-                    My Doctorate in Business Administration focused on the "Effectiveness of online video advertising based on audience characteristics." I don't just build products; I build validated advertising ecosystems.
-                </p>
+            <div class="project-card p-8 rounded-3xl bg-white/[0.02]">
+                <h3 class="text-xl font-bold mb-2">Video Delivery Engine</h3>
+                <p class="text-slate-400 text-sm">82.5% view rate via AI-powered troubleshooting.</p>
             </div>
         </div>
     </section>
 
-    <footer class="max-w-5xl mx-auto px-6 py-20 text-center">
-        <h2 class="text-3xl font-bold mb-4">Ready to unblock your growth?</h2>
-        <p class="mb-8 text-slate-600 italic">"I identify systemic gaps and unblock growth through cross-functional synergy."</p>
-        <a href="mailto:maria.gonzalezgonza@gmail.com" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">Contact Maria</a>
-        <div class="mt-8 text-slate-400 text-sm">
-            Seattle, WA | LinkedIn: /in/mariagonzalezgonza/
+    <section class="py-20 bg-white/[0.02] border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-8">
+            <h2 class="text-4xl font-bold mb-16 tracking-tighter uppercase">What they say about the <span class="text-pink-500 italic">Catalyst</span></h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 border border-white/10 rounded-2xl bg-black">
+                    <p class="text-slate-300 italic mb-6">"Maria has a deep understanding of privacy regulations and was able to use her knowledge to build a <strong>privacy-by-design SaaS platform</strong>... her communication and interpersonal relationships are excellent."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center font-bold">GH</div>
+                        <div>
+                            <p class="font-bold text-sm">Gregorio Hakimian</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Head of Tech | GranData</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-2xl bg-black">
+                    <p class="text-slate-300 italic mb-6">"An amazing professional and young leader. Her natural empathy and tech background make her an <strong>outstanding product manager</strong> who easily creates trust with dev teams."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center font-bold">MM</div>
+                        <div>
+                            <p class="font-bold text-sm">Marina Magarinos</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Product Director | Ex-Meli</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-2xl bg-black">
+                    <p class="text-slate-300 italic mb-6">"A top performer who inspired the rest of the team. I was impressed by her <strong>proactivity and ability to coordinate cross-functional teams</strong>."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-emerald-500 rounded-full flex items-center justify-center font-bold">JM</div>
+                        <div>
+                            <p class="font-bold text-sm">L. Javier Martínez-Moya</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Entrepreneur & Finance Leader</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 border border-white/10 rounded-2xl bg-black">
+                    <p class="text-slate-300 italic mb-6">"Maria is the <strong>best at coordinating cross-functional teams</strong>. She understands business needs and translates them into technical specifications perfectly."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center font-bold">EV</div>
+                        <div>
+                            <p class="font-bold text-sm">Eduardo Varela</p>
+                            <p class="text-[10px] text-slate-500 uppercase">Process Engineer | Fluor Corp</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+
+    <footer class="py-32 text-center">
+        <h2 class="text-5xl md:text-8xl font-bold tracking-tighter mb-12">LET'S <span class="text-pink-500">REACT.</span></h2>
+        <a href="https://linkedin.com/in/mariagonzalezgonza/" target="_blank" class="text-xl border-b border-pink-500 pb-2 hover:bg-pink-500 hover:text-white transition-all">CONNECT ON LINKEDIN</a>
     </footer>
 
+    <script>
+        function triggerReaction() {
+            document.body.style.backgroundColor = "#1a0b1a";
+            setTimeout(() => document.body.style.backgroundColor = "#050505", 200);
+        }
+    </script>
 </body>
 </html>
